@@ -3,6 +3,7 @@ import telebot
 import requests
 import re
 from bs4 import BeautifulSoup
+import json
 
 
 
@@ -75,10 +76,20 @@ def encode_url(message):
 
     encoded_message = original_message
     for amazon_link in links:
+        response = requests.get(f"https://unshorten.me/json/{amazon_link}")
+        if response.status_code == 200:
+            data = json.loads(response.content.decode('utf-8'))
+            original_link = data['resolved_url']
+        else:
+            original_link = amazon_link
 
 
 
-        affiliate_link = convert_amazon_link_to_affiliate_id(amazon_link, affiliate_id)
+        affiliate_link = convert_amazon_link_to_affiliate_id(original_link, affiliate_id)
+
+
+
+
 
         if affiliate_link:
             # Encode and shorten affiliate link
