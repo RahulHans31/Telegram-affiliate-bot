@@ -8,7 +8,7 @@ import json
 
 
 bot = telebot.TeleBot("6167977168:AAG3FNQOuMgw7U8JkS-UQ_xin-JCtYsTTEY")
-affiliate_id = "fastestdeals-21"
+affiliate_id = "antofy-21"
 proxy_url = "https://cors-anywhere.herokuapp.com/"
 
 
@@ -93,7 +93,7 @@ def encode_url(message):
 
         if affiliate_link:
             # Encode and shorten affiliate link
-            encoded_url = "https://fastestdealsfirst.blogspot.com/p/track.html?trackurl=" + affiliate_link
+            encoded_url = "https://antofydeals.blogspot.com/p/track.html?trackurl=" + affiliate_link
             response = requests.get(f"http://tinyurl.com/api-create.php?url={encoded_url}")
             shortened_url = response.text
 
@@ -133,7 +133,7 @@ def encode_url_channel(message):
 
         if affiliate_link:
             # Encode and shorten affiliate link
-            encoded_url = "https://fastestdealsfirst.blogspot.com/p/track.html?trackurl=" + affiliate_link
+            encoded_url = "https://antofydeals.blogspot.com/p/track.html?trackurl=" + affiliate_link
             response = requests.get(f"http://tinyurl.com/api-create.php?url={encoded_url}")
             shortened_url = response.text
 
